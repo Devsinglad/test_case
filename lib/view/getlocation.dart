@@ -13,11 +13,21 @@ class _GetLocationScreenState extends State<GetLocationScreen> {
 
   @override
   void initState() {
-    Maps map = Maps();
-    map.getLocationPermission();
-    map.getLocation();
-    position = map.currentPosition!.latitude;
+    _getLocation();
     super.initState();
+  }
+
+  Future<void> _getLocation() async {
+    try {
+      Maps map = Maps();
+      await map.getLocationPermission();
+      final currentPosition = await map.getLocationPermission();
+      setState(() {
+        position = currentPosition.latitude;
+      });
+    } catch (e) {
+      print('Error getting location: $e');
+    }
   }
 
   @override

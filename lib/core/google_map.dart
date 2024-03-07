@@ -1,6 +1,4 @@
-import 'dart:convert';
-import 'dart:ui' as ui;
-import 'package:flutter/material.dart';
+
 import 'package:geolocator/geolocator.dart';
 
 
@@ -9,12 +7,9 @@ class Maps{
   Position? currentPosition;
  var address;
 
-List pickUpPlaces=[];
-String? selectedPlaces;
-  var geoLocator = Geolocator();
 
 
-  ///logic  to get current location
+
 
   /// Get location Permission
   Future<Position> getLocationPermission() async {
