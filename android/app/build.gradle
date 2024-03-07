@@ -24,7 +24,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.example.test_case"
-    compileSdk flutter.compileSdkVersion
+    compileSdkVersion 33
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -36,8 +36,18 @@ android {
         jvmTarget = '1.8'
     }
 
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+    }
+    configurations.all {
+        resolutionStrategy {
+            eachDependency {
+                if ((requested.group == "org.jetbrains.kotlin") && (requested.name.startsWith("kotlin-stdlib"))) {
+                    useVersion("1.8.0")
+                }
+            }
+        }
     }
 
     defaultConfig {

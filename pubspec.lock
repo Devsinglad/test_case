@@ -96,14 +96,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  geo:
-    dependency: "direct main"
-    description:
-      name: geo
-      sha256: f547cc4037e6b083f3af4291ac98513e04bff1111f9c3a08a2db2316f98cafb9
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.0"
   geolocator:
     dependency: "direct main"
     description:

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:test_case/core/google_map.dart';
 
-class GetLocationScreen extends StatefulWidget {
-  const GetLocationScreen({super.key});
+class LocationScreen extends StatefulWidget {
+  const LocationScreen({super.key});
 
   @override
-  State<GetLocationScreen> createState() => _GetLocationScreenState();
+  State<LocationScreen> createState() => _LocationScreenState();
 }
 
-class _GetLocationScreenState extends State<GetLocationScreen> {
+class _LocationScreenState extends State<LocationScreen> {
   double position = 0;
 
   @override
@@ -34,14 +34,17 @@ class _GetLocationScreenState extends State<GetLocationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Text('location$position'),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Send Location'),
-            ),
-          ],
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('location$position'),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text('Send Location'),
+              ),
+            ],
+          ),
         ),
       ),
     );
