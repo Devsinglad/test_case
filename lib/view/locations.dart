@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_case/core/google_map.dart';
+import 'package:test_case/view/subscriptionPage.dart';
 
 import '../core/api.dart';
 
@@ -50,6 +51,13 @@ class _LocationScreenState extends State<LocationScreen> {
                   sendLocation.postLocation('$lat', '$long', DateTime.timestamp().toString());
                 },
                 child: const Text('Send Location'),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_)=>const SseSubscriptionPage()));
+                },
+                child: const Text('Subscription Page'),
               ),
             ],
           ),
