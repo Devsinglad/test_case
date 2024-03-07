@@ -5,9 +5,6 @@ import 'package:geolocator/geolocator.dart';
 
 class Maps{
   Position? currentPosition;
- var address;
-
-
 
 
 
@@ -37,15 +34,5 @@ class Maps{
 
   }
 
-  void getLocation() async {
-    currentPosition = await getLocationPermission();
-    if (currentPosition != null) {
-      double latitude = currentPosition!.latitude;
-      double longitude = currentPosition!.longitude;
-      print("Latitude: $latitude, Longitude: $longitude");
-    } else {
-      print('No location');
-    }
-    }
 
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_case/core/google_map.dart';
 
+import '../core/api.dart';
+
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});
 
@@ -9,7 +11,9 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-  double position = 0;
+  double lat = 0;
+  double long = 0;
+
 
   @override
   void initState() {
@@ -23,7 +27,8 @@ class _LocationScreenState extends State<LocationScreen> {
       await map.getLocationPermission();
       final currentPosition = await map.getLocationPermission();
       setState(() {
-        position = currentPosition.latitude;
+        lat = currentPosition.latitude;
+        long = currentPosition.longitude;
       });
     } catch (e) {
       print('Error getting location: $e');
@@ -38,9 +43,12 @@ class _LocationScreenState extends State<LocationScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('location$position'),
+              Text('LAT: $lat  LONG: $long'),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  EndPoint sendLocation=EndPoint();
+                  sendLocation.postLocation('$lat', '$long', DateTime.timestamp().toString());
+                },
                 child: const Text('Send Location'),
               ),
             ],
